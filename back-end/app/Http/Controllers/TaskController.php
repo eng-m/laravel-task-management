@@ -52,6 +52,7 @@ class TaskController extends Controller
             }
 
             $task->update($request->validated());
+            // \Log::info('Updating task with data:', $request->validated());
             return new TaskResource($task);
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => 'Task not found'], 404);
